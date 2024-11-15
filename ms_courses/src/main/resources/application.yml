@@ -1,0 +1,19 @@
+
+server:
+  port: 8083
+  servlet:
+    context-path: /course-app
+
+spring:
+  application:
+    name: course-app
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/COURSE_DB
+    username: postgres
+    password: 1234
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
