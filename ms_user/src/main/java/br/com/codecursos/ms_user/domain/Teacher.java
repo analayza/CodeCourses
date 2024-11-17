@@ -13,8 +13,9 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@Builder(toBuilder = true)
 public class Teacher extends User{
 
+    @Builder.Default
     private List<Long> coursesCreated =  new ArrayList<>();
 }
