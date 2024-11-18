@@ -14,16 +14,27 @@ public class StudentService {
 
     private final StudentRepository studentRepository;
     private final StudentMapper studentMapper;
+    private Student student;
 
     public Student save(StudentDTO studentDTO){
         return studentRepository.save(studentMapper.dtoToEntity(studentDTO));
     }
 
     public Student deleteById(Long id) {
-        Student student = studentRepository.findById(id)
+        student = studentRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException(id + " not found"));
         studentRepository.deleteById(id);
         return student;
     }
 
+
+    public Student updatePassword(Long studentId, String oldPassword, String newPassword) {
+        student = studentRepository.findById(studentId)
+                .orElseThrow(() -> new IllegalArgumentException("ID " + studentId + " not found"));
+        if (!student.getPassword().equals(oldPassword)) {
+            throw new IllegalArgumentException("Old password does not match");
+        }
+        student.setPassword(newPassword);
+        return studentRepository.save(student);
+    }
 }

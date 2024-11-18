@@ -16,15 +16,26 @@ public class TeacherService {
 
     private final TeacherRepository teacherRepository;
     private final TeacherMapper teacherMapper;
+    private Teacher teacher;
 
     public Teacher save(TeacherDTO teacherDTO){
         return teacherRepository.save(teacherMapper.tdoToEntity(teacherDTO));
     }
 
     public Teacher deleteById(Long id) {
-        Teacher teacher = teacherRepository.findById(id)
+        teacher = teacherRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException(id + " not found"));
         teacherRepository.deleteById(id);
         return teacher;
+    }
+
+    public Teacher updatePassword(Long teacherId, String oldPassword, String newPassword) {
+        teacher = teacherRepository.findById(teacherId)
+                .orElseThrow(() -> new IllegalArgumentException("ID " + teacherId + " not found"));
+        if (!teacher.getPassword().equals(oldPassword)) {
+            throw new IllegalArgumentException("Old password does not match");
+        }
+        teacher.setPassword(newPassword);
+        return teacherRepository.save(teacher);
     }
 }
