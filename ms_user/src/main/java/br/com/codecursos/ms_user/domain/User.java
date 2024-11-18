@@ -2,22 +2,15 @@ package br.com.codecursos.ms_user.domain;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder(toBuilder = true)
-public abstract class User {
+import jakarta.persistence.MappedSuperclass;
+import lombok.*;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+@Data
+@MappedSuperclass
+public abstract class User extends BaseEntity {
 
     private String name;
     private String email;
     private String password;
-    private String type;
+
 }
