@@ -26,6 +26,11 @@ public class StudentController {
 
     @PostMapping("/delete")
     public ResponseEntity<Student> deleteById(Long id){
-        return ResponseEntity.status(HttpStatus.OK).body((studentService.deleteById(id)));
+        return ResponseEntity.status(HttpStatus.OK).body(studentService.deleteById(id));
+    }
+
+    @PostMapping("/update-password")
+    public ResponseEntity<Student> updatePassword(Long studentId, String oldPassword, String newPassword){
+        return ResponseEntity.status(HttpStatus.OK).body(studentService.updatePassword(studentId,oldPassword,newPassword));
     }
 }
