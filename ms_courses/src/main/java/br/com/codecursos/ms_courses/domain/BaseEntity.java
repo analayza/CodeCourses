@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 public class BaseEntity {
+
     private LocalDateTime dateTimeCreation;
     private LocalDateTime dateUpdate;
 

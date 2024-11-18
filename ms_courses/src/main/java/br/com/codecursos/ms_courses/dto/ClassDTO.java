@@ -5,6 +5,7 @@ import lombok.Data;
 
 @Data
 public class ClassDTO {
+
     private Long id;
 
     @NotBlank(message = "O título não pode ser vazio.")
