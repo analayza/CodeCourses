@@ -6,7 +6,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
@@ -14,17 +13,15 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @Builder
-public class Course extends BaseEntity{
+public class Module extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String title;
-    private BigDecimal value;
-    private String description;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Module> module;
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private List<Class> class_list;
 
 }

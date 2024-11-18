@@ -6,25 +6,23 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
-import java.util.List;
-
 @Entity
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
 @Builder
-public class Course extends BaseEntity{
+public class CourseUser extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String title;
-    private BigDecimal value;
-    private String description;
+    @ManyToOne
+    @JoinColumn(name = "course_id")
+    private Course course;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Module> module;
+    private Long userId;
+
+    private String userName;
 
 }
