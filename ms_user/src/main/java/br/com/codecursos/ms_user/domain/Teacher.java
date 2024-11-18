@@ -17,11 +17,15 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Teacher extends User{
+public class Teacher extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    private String name;
+    private String email;
+    private String password;
 
     @Builder.Default
     private List<Long> coursesCreated =  new ArrayList<>();
