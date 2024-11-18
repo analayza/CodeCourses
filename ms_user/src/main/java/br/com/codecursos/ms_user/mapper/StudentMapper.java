@@ -2,7 +2,6 @@ package br.com.codecursos.ms_user.mapper;
 
 import br.com.codecursos.ms_user.domain.Student;
 import br.com.codecursos.ms_user.dto.StudentDTO;
-import br.com.codecursos.ms_user.dto.TeacherDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
