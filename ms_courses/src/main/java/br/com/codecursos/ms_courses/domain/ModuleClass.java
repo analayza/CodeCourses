@@ -1,9 +1,6 @@
 package br.com.codecursos.ms_courses.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Builder
-public class Class extends BaseEntity{
+public class ModuleClass extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,4 +21,6 @@ public class Class extends BaseEntity{
     private String image;
     private String url;
 
+    @Column(name = "module_id")
+    private Long moduleId;
 }
