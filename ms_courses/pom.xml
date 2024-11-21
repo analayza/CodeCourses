@@ -73,7 +73,11 @@
 			<artifactId>mapstruct-processor</artifactId>
 			<version>1.6.2</version>
 		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+    </dependencies>
 
 	<build>
 		<plugins>
