@@ -11,5 +11,6 @@ public interface CourseMapper {
 
     @Mapping(target = "id", ignore = true)
     Course dtoToEntity(CourseDTO courseDTO);
+
     CourseDTO entityToDto(Course course);
 }
