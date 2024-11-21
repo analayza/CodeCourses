@@ -25,5 +25,6 @@ public class Course extends BaseEntity{
     private String title;
     private BigDecimal value;
     private String description;
+    private Long idTeacher;
 
 }

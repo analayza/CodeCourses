@@ -1,13 +1,11 @@
-package br.com.codecursos.ms_courses.dto;
+package br.com.codecursos.ms_user.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 
 import java.math.BigDecimal;
-
 
 @Data
 @Builder

@@ -25,6 +25,10 @@ public class CourseService {
         return courseRepository.findAll();
     }
 
+    public List<Course> findByCourseTeacher(Long id){
+        return courseRepository.findCoursesByTeacher(id);
+    }
+
     public void deleteCourse(Long id){
         if (!courseRepository.existsById(id)) {
             throw new IllegalArgumentException("Curso com o ID " + id + " não encontrado.");
@@ -40,7 +44,8 @@ public class CourseService {
                 id,
                 courseDTO.getTitle(),
                 courseDTO.getValue(),
-                courseDTO.getDescription()
+                courseDTO.getDescription(),
+                courseDTO.getIdTeacher()
         );
     }
 }

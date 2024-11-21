@@ -10,3 +10,4 @@ public interface CourseModuleMapper {
     @Mapping(target = "id", ignore = true)
     CourseModule dtoToModel(CourseModuleDTO courseModuleDTO);
 }
+
