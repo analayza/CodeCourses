@@ -18,7 +18,7 @@ public class CourseService {
     private final CourseMapper courseMapper;
 
     public Course save(CourseDTO courseDTO){
-        return courseRepository.save(courseMapper.tdoToEntity(courseDTO));
+        return courseRepository.save(courseMapper.dtoToEntity(courseDTO));
     }
 
     public List<Course> findByCourse(){
