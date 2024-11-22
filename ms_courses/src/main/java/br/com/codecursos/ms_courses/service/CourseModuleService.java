@@ -6,7 +6,9 @@ import br.com.codecursos.ms_courses.mapper.CourseModuleMapper;
 import br.com.codecursos.ms_courses.repository.CourseModuleRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -16,6 +18,8 @@ public class CourseModuleService {
 
     private final CourseModuleRepository courseModuleRepository;
     private final CourseModuleMapper courseModuleMapper;
+
+    @PostMapping("/save")
     public CourseModule save(CourseModuleDTO moduleDTO){
         return courseModuleRepository.save(courseModuleMapper.dtoToModel(moduleDTO));
     }
@@ -35,10 +39,14 @@ public class CourseModuleService {
         if (!courseModuleRepository.existsById(id)) {
             throw new IllegalArgumentException("O modulo com o ID " + id + " não foi encontrado.");
         }
-        courseModuleRepository.updateCourseModule(
+        courseModuleRepository.updateCourseModuleTitle(
                 id,
-                courseModuleDTO.getTitle(),
-                courseModuleDTO.getCourseId()
+                courseModuleDTO.getTitle()
         );
     }
+
+    public List<CourseModule> findByModuleCourseId(Long id){
+        return courseModuleRepository.findModulesByCourseId(id);
+    }
+
 }

@@ -1,14 +1,12 @@
-package br.com.codecursos.ms_courses.dto;
+package br.com.codecursos.ms_user.dto.request;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Builder;
 import lombok.Data;
 
 @Data
 @Builder
-public class CourseModuleDTO {
+public class ModuleDTO {
 
     private Long id;
 
@@ -16,4 +14,5 @@ public class CourseModuleDTO {
     private String title;
 
     private Long courseId;
+
 }

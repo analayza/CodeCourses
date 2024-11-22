@@ -9,5 +9,7 @@ import org.mapstruct.Mapping;
 public interface CourseModuleMapper {
     @Mapping(target = "id", ignore = true)
     CourseModule dtoToModel(CourseModuleDTO courseModuleDTO);
+
+    CourseModuleDTO modelToDto(CourseModule courseModule);
 }
 
