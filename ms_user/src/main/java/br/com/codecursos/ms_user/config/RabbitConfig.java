@@ -22,11 +22,13 @@ public class RabbitConfig {
     private int port;
     private String username;
     private String password;
+
     @Bean
     @Primary //Diz quem será o primeiro a ser chamado
     public RabbitAdmin rabbitAdmin(){ //Envia as mensagens
         return new RabbitAdmin(connectionFactory());
     }
+
     @Bean
     @Primary
     public RabbitTemplate rabbitTemplate(final Jackson2JsonMessageConverter converter){ //Faz a tradução das mensagens
