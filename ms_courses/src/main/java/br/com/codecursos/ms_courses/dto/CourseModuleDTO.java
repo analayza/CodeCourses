@@ -1,5 +1,6 @@
 package br.com.codecursos.ms_courses.dto;
 
+
 import jakarta.validation.constraints.NotBlank;
 import lombok.Builder;
 import lombok.Data;
