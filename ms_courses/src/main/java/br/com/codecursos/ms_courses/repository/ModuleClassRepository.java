@@ -1,11 +1,14 @@
 package br.com.codecursos.ms_courses.repository;
 
+import br.com.codecursos.ms_courses.domain.Course;
 import br.com.codecursos.ms_courses.domain.ModuleClass;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public interface ModuleClassRepository extends JpaRepository<ModuleClass, Long> {
@@ -22,4 +25,6 @@ public interface ModuleClassRepository extends JpaRepository<ModuleClass, Long> 
                            @Param("url") String url,
                            @Param("moduleId") Long moduleId);
 
+    @Query("SELECT c FROM ModuleClass c WHERE c.moduleId = :moduleId")
+    List<ModuleClass> findClassesByModuleId(@Param("moduleId") Long moduleId);
 }

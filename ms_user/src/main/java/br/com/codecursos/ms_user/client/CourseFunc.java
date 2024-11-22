@@ -1,5 +1,6 @@
 package br.com.codecursos.ms_user.client;
 
+import br.com.codecursos.ms_user.dto.request.ClassDTO;
 import br.com.codecursos.ms_user.dto.request.CourseDTO;
 import br.com.codecursos.ms_user.dto.request.ModuleDTO;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -34,6 +35,18 @@ public interface CourseFunc {
 
     @GetMapping("/module/listModuleCourse/{id}")
     List<ModuleDTO> listModuleCourseId(@PathVariable("id") Long id);
+
+    @PostMapping("/moduleclass/save")
+    ClassDTO saveClass(@RequestBody ClassDTO classDTO);
+
+    @DeleteMapping("moduleclass/{id}")
+    void deleteClass(@PathVariable("id") Long id);
+
+    @PutMapping("/moduleclass/{id}")
+    void updateClass(@PathVariable("id") Long id, ClassDTO classDTO);
+
+    @GetMapping("/moduleclass/listClassModule/{id}")
+    List<ClassDTO> listClassModuleId(@PathVariable("id") Long id);
 
 
 }

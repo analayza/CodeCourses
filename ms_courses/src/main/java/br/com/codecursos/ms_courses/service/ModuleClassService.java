@@ -1,5 +1,6 @@
 package br.com.codecursos.ms_courses.service;
 
+import br.com.codecursos.ms_courses.domain.Course;
 import br.com.codecursos.ms_courses.domain.ModuleClass;
 import br.com.codecursos.ms_courses.dto.ModuleClassDTO;
 import br.com.codecursos.ms_courses.mapper.ModuleClassMapper;
@@ -23,6 +24,10 @@ public class ModuleClassService {
 
     public List<ModuleClass> findByModuleClass(){
         return moduleClassRepository.findAll();
+    }
+
+    public List<ModuleClass> findClassesByModuleId(Long id){
+        return moduleClassRepository.findClassesByModuleId(id);
     }
 
     public void deleteModuleClass(Long id){
