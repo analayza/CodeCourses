@@ -20,5 +20,4 @@ public class TeacherDTO {
     @Size(min = 8, message = "A senha deve ter no mínimo 8 caracteres.")
     private String password;
 
-    private List<Long> coursesCreated = new ArrayList<>();
 }

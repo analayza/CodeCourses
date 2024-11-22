@@ -35,14 +35,11 @@ public class CourseModuleService {
     }
 
     @Transactional
-    public void updateModule(Long id,  CourseModuleDTO courseModuleDTO) {
-        if (!courseModuleRepository.existsById(id)) {
-            throw new IllegalArgumentException("O modulo com o ID " + id + " não foi encontrado.");
-        }
-        courseModuleRepository.updateCourseModuleTitle(
-                id,
-                courseModuleDTO.getTitle()
-        );
+    public void updateModule(Long id, CourseModuleDTO courseModuleDTO) {
+        CourseModule existingModule = courseModuleRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Module not found"));
+        existingModule.setTitle(courseModuleDTO.getTitle());
+        courseModuleRepository.save(existingModule);
     }
 
     public List<CourseModule> findByModuleCourseId(Long id){

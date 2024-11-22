@@ -38,16 +38,12 @@ public class ModuleClassService {
     }
 
     @Transactional
-    public void updateModuleClass(Long id,  ModuleClassDTO moduleClassDTO) {
-        if (!moduleClassRepository.existsById(id)) {
-            throw new IllegalArgumentException("A aula com o ID " + id + " não foi encontrada.");
-        }
-        moduleClassRepository.updateModuleClass(
-                id,
-                moduleClassDTO.getTitle(),
-                moduleClassDTO.getImage(),
-                moduleClassDTO.getUrl(),
-                moduleClassDTO.getModuleId()
-        );
+    public void updateModuleClass(Long id, ModuleClassDTO moduleClassDTO) {
+        ModuleClass existingModuleClass = moduleClassRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("A aula com o ID " + id + " não foi encontrada."));
+        existingModuleClass.setTitle(moduleClassDTO.getTitle());
+        existingModuleClass.setImage(moduleClassDTO.getImage());
+        existingModuleClass.setUrl(moduleClassDTO.getUrl());
+        moduleClassRepository.save(existingModuleClass);
     }
 }
