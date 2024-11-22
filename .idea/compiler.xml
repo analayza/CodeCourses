@@ -9,7 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="ms_UserCourseConnector" />
       </profile>
-      <profile name="Annotation profile for ms_courses" enabled="true">
+      <profile name="Annotation profile for ms_user" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
