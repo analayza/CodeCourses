@@ -1,6 +1,7 @@
 package br.com.codecursos.ms_courses.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,9 +18,8 @@ public class CourseUser extends BaseEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "course_id")
-    private Course course;
+    @NotNull
+    private Long courseId;
 
     private Long userId;
 
