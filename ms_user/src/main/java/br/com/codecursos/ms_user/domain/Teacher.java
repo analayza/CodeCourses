@@ -27,6 +27,4 @@ public class Teacher extends BaseEntity{
     private String email;
     private String password;
 
-    @Builder.Default
-    private List<Long> coursesCreated =  new ArrayList<>();
 }

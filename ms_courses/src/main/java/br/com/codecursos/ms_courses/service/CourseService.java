@@ -37,15 +37,11 @@ public class CourseService {
     }
     @Transactional
     public void updateCourse(Long id, CourseDTO courseDTO) {
-        if (!courseRepository.existsById(id)) {
-            throw new IllegalArgumentException("Curso com ID " + id + " não encontrado.");
-        }
-        courseRepository.updateCourse(
-                id,
-                courseDTO.getTitle(),
-                courseDTO.getValue(),
-                courseDTO.getDescription(),
-                courseDTO.getIdTeacher()
-        );
+        Course existingCourse = courseRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Curso com ID " + id + " não encontrado."));
+        existingCourse.setTitle(courseDTO.getTitle());
+        existingCourse.setValue(courseDTO.getValue());
+        existingCourse.setDescription(courseDTO.getDescription());
+        courseRepository.save(existingCourse);
     }
 }
