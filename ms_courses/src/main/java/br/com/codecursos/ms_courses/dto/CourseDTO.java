@@ -25,6 +25,9 @@ public class CourseDTO {
     @NotBlank(message = "A descrição não pode ser vazia.")
     private String description;
 
+    @NotBlank(message = "A Imagem não pode ser vazia.")
+    private String image;
+
     @NotNull
     private Long idTeacher;
 }

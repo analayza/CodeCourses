@@ -33,18 +33,13 @@ public class CourseController {
     }
 
 //    @GetMapping("/listCourseTeacher/{id}")
-//    public ResponseEntity<List<Course>>findByCourseTeacher(@PathVariable("id") Long id){
-//        return ResponseEntity.status(HttpStatus.OK).body(courseService.findByCourseTeacher(id));
+//    public ResponseEntity<List<CourseDTO>> findByCourseTeacher(@PathVariable("id") Long id) {
+//        List<Course> courses = courseService.findByCourseTeacher(id);
+//        List<CourseDTO> courseDTOs = courses.stream()
+//                .map(courseMapper::entityToDto)
+//                .collect(Collectors.toList());
+//        return ResponseEntity.status(HttpStatus.OK).body(courseDTOs);
 //    }
-
-    @GetMapping("/listCourseTeacher/{id}")
-    public ResponseEntity<List<CourseDTO>> findByCourseTeacher(@PathVariable("id") Long id) {
-        List<Course> courses = courseService.findByCourseTeacher(id);
-        List<CourseDTO> courseDTOs = courses.stream()
-                .map(courseMapper::entityToDto)
-                .collect(Collectors.toList());
-        return ResponseEntity.status(HttpStatus.OK).body(courseDTOs);
-    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Course>deleteCourse(@PathVariable("id") Long id){

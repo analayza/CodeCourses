@@ -42,6 +42,7 @@ public class CourseService {
         existingCourse.setTitle(courseDTO.getTitle());
         existingCourse.setValue(courseDTO.getValue());
         existingCourse.setDescription(courseDTO.getDescription());
+        existingCourse.setImage(courseDTO.getImage());
         courseRepository.save(existingCourse);
     }
 }

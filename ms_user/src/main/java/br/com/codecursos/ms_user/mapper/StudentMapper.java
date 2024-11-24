@@ -8,10 +8,7 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface StudentMapper {
 
-    //@Mapping(target = "id", ignore = true)
-    //@Mapping(target = "coursesParticipating", ignore = true)
     @Mapping(target = "id", ignore = true)
-
     Student dtoToEntity(StudentDTO studentDTO);
 
 }

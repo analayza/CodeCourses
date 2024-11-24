@@ -13,9 +13,6 @@ public class ClassDTO {
     @NotBlank(message = "O título não pode ser vazio.")
     private String title;
 
-    @NotBlank(message = "A imagem não pode ser vazia.")
-    private String image;
-
     @NotBlank(message = "A url da aula não pode ser vazia.")
     private String url;
 
