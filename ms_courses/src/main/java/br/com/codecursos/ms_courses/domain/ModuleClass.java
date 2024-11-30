@@ -18,7 +18,7 @@ public class ModuleClass extends BaseEntity{
     private Long id;
 
     private String title;
-    private String image;
+
     private String url;
 
     @Column(name = "module_id")

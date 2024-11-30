@@ -30,4 +30,13 @@ public class CourseUserController {
         return ResponseEntity.status(HttpStatus.OK).body(courseUserService.listCourseUsers(id));
     }
 
+    @GetMapping("/findCoursesFromStudent/{id}")
+    public ResponseEntity<List<CourseDTO>> listByCourseStudent(@PathVariable("id") Long id){
+        return ResponseEntity.status(HttpStatus.OK).body(courseUserService.listByCourseStudent(id));
+    }
+    @GetMapping("/listFindCoursesThatStudentDoesNotHave/{id}")
+    public ResponseEntity<List<CourseDTO>> listFindCoursesThatStudentDoesNotHave(@PathVariable("id") Long id){
+        return ResponseEntity.status(HttpStatus.OK).body(courseUserService.findCoursesThatStudentDoesNotHave(id));
+    }
+
 }

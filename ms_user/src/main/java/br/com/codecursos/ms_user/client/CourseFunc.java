@@ -52,5 +52,9 @@ public interface CourseFunc {
     @GetMapping("/courseUser/listCourseUsers/{id}")
     List<CourseUserDTO> listCourseUsers(@PathVariable("id") Long id);
 
+    @GetMapping("/courseUser/findCoursesFromStudent/{id}")
+    List<CourseDTO> listByCourseStudent(@PathVariable("id") Long id);
 
+    @GetMapping("/courseUser/findCoursesThatStudentDoesNotHave/{id}")
+    List<CourseDTO> findCoursesThatStudentDoesNotHave(@PathVariable("id") Long id);
 }

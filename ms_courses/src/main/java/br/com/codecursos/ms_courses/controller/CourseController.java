@@ -32,11 +32,6 @@ public class CourseController {
         return ResponseEntity.status(HttpStatus.OK).body(courseService.findByCourse());
     }
 
-//    @GetMapping("/listCourseTeacher/{id}")
-//    public ResponseEntity<List<Course>>findByCourseTeacher(@PathVariable("id") Long id){
-//        return ResponseEntity.status(HttpStatus.OK).body(courseService.findByCourseTeacher(id));
-//    }
-
     @GetMapping("/listCourseTeacher/{id}")
     public ResponseEntity<List<CourseDTO>> findByCourseTeacher(@PathVariable("id") Long id) {
         List<Course> courses = courseService.findByCourseTeacher(id);

@@ -19,5 +19,5 @@ public class TeacherDTO {
     private String email;
     @Size(min = 8, message = "A senha deve ter no mínimo 8 caracteres.")
     private String password;
-
+    private String profile;
 }
