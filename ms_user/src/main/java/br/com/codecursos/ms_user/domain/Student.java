@@ -27,5 +27,6 @@ public class Student extends BaseEntity{
     private String email;
     private String password;
     private String profile;
+    private String type;
 
 }

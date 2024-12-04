@@ -27,5 +27,6 @@ public class Teacher extends BaseEntity{
     private String email;
     private String password;
     private String profile;
+    private String type;
 
 }

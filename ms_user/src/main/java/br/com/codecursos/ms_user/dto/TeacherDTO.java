@@ -20,4 +20,6 @@ public class TeacherDTO {
     @Size(min = 8, message = "A senha deve ter no mínimo 8 caracteres.")
     private String password;
     private String profile;
+    @NotBlank(message = "O tipo não pode ser vazio.")
+    private String type;
 }
