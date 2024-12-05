@@ -10,7 +10,6 @@ class MsUserApplicationTests {
 
 	@MockBean
 	private RabbitAdmin rabbitAdmin;
-
 	@Test
 	void contextLoads() {
 	}

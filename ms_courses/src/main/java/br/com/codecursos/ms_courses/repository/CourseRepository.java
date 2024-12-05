@@ -18,13 +18,15 @@ public interface CourseRepository extends JpaRepository<Course, Long> {
     @Query("UPDATE Course c SET " +
             "c.title = COALESCE(:title, c.title), " +
             "c.value = COALESCE(:value, c.value), " +
-            "c.description = COALESCE(:description, c.description) " +
+            "c.description = COALESCE(:description, c.description), " +
+            "c.image = COALESCE(:image, c.image) " +
             "WHERE c.id = :id " +
             "AND c.idTeacher = :idTeacher")
     void updateCourse(@Param("id") Long id,
                       @Param("title") String title,
                       @Param("value") BigDecimal value,
                       @Param("description") String description,
+                      @Param("image") String image,
                       @Param("idTeacher") Long idTeacher);
 
 

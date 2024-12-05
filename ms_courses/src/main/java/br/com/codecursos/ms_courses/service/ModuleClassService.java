@@ -42,7 +42,6 @@ public class ModuleClassService {
         ModuleClass existingModuleClass = moduleClassRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("A aula com o ID " + id + " não foi encontrada."));
         existingModuleClass.setTitle(moduleClassDTO.getTitle());
-        existingModuleClass.setImage(moduleClassDTO.getImage());
         existingModuleClass.setUrl(moduleClassDTO.getUrl());
         moduleClassRepository.save(existingModuleClass);
     }

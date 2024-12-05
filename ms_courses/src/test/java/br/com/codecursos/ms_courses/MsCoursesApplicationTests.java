@@ -11,7 +11,6 @@ class MsCoursesApplicationTests {
 	@MockBean
 	private RabbitAdmin rabbitAdmin;
 
-
 	@Test
 	void contextLoads() {
 	}
