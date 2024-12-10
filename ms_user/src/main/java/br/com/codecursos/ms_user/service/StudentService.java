@@ -37,4 +37,8 @@ public class StudentService {
         student.setPassword(newPassword);
         return studentRepository.save(student);
     }
+
+    public StudentDTO findByEmailAndPassword(String email, String password){
+        return studentMapper.entityToDto(studentRepository.findByEmailAndPassword(email, password));
+    }
 }
