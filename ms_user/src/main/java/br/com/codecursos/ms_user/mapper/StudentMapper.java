@@ -11,4 +11,6 @@ public interface StudentMapper {
    @Mapping(target = "id", ignore = true)
    Student dtoToEntity(StudentDTO studentDTO);
 
+    StudentDTO entityToDto(Student student);
+
 }

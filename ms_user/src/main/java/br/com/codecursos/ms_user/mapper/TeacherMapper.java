@@ -10,4 +10,5 @@ public interface TeacherMapper {
     @Mapping(target = "id", ignore = true)
     Teacher tdoToEntity(TeacherDTO teacherDTO);
 
+    TeacherDTO entityToDto(Teacher teacher);
 }
