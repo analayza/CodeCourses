@@ -20,6 +20,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/module")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:3000")
 public class CourseModuleController {
 
     private final CourseModuleService courseModuleService;
