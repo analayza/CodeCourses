@@ -8,7 +8,7 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface StudentMapper {
 
-   // @Mapping(target = "id", ignore = true)
-    Student dtoToEntity(StudentDTO studentDTO);
+   @Mapping(target = "id", ignore = true)
+   Student dtoToEntity(StudentDTO studentDTO);
 
 }
