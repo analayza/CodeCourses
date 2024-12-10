@@ -22,4 +22,5 @@ public class TeacherDTO {
     private String profile;
     @NotBlank(message = "O tipo não pode ser vazio.")
     private String type;
+
 }
