@@ -22,13 +22,13 @@ public class TeacherController {
         return ResponseEntity.status(HttpStatus.CREATED).body(teacherService.save(teacherDTO));
     }
 
-    @DeleteMapping("/delete")
-    public ResponseEntity<Teacher> deleteById(Long id){
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Teacher> deleteById(@PathVariable Long id){
         return ResponseEntity.status(HttpStatus.OK).body((teacherService.deleteById(id)));
     }
 
     @PutMapping("/update-password")
-    public ResponseEntity<Teacher> updatePassword(Long teacherId, String oldPassword, String newPassword){
+    public ResponseEntity<Teacher> updatePassword(@RequestParam Long teacherId, @RequestParam String oldPassword, @RequestParam String newPassword){
         return ResponseEntity.status(HttpStatus.OK).body(teacherService.updatePassword(teacherId,oldPassword,newPassword));
     }
 }

@@ -8,6 +8,7 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -39,10 +40,31 @@ public class CourseService {
     public void updateCourse(Long id, CourseDTO courseDTO) {
         Course existingCourse = courseRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Curso com ID " + id + " não encontrado."));
-        existingCourse.setTitle(courseDTO.getTitle());
-        existingCourse.setValue(courseDTO.getValue());
-        existingCourse.setDescription(courseDTO.getDescription());
-        existingCourse.setImage(courseDTO.getImage());
+
+        // Atualiza o título apenas se não for nulo ou vazio
+        if (courseDTO.getTitle() != null && !courseDTO.getTitle().trim().isEmpty()) {
+            existingCourse.setTitle(courseDTO.getTitle());
+        }
+
+        // Verifica se o valor é válido, maior que zero e não nulo
+        if (courseDTO.getValue() != null && courseDTO.getValue().compareTo(BigDecimal.ZERO) > 0) {
+            existingCourse.setValue(courseDTO.getValue());
+        }
+
+        // Atualiza a descrição apenas se não for nula ou vazia
+        if (courseDTO.getDescription() != null && !courseDTO.getDescription().trim().isEmpty()) {
+            existingCourse.setDescription(courseDTO.getDescription());
+        }
+
+        // Atualiza a imagem apenas se não for nula ou vazia
+        if (courseDTO.getImage() != null && !courseDTO.getImage().trim().isEmpty()) {
+            existingCourse.setImage(courseDTO.getImage());
+        }
+
+        // Salva as mudanças no banco
         courseRepository.save(existingCourse);
     }
+
+
+
 }

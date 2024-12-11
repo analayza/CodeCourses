@@ -16,18 +16,18 @@ public class CourseDTO {
 
     private Long id;
 
-    @NotBlank(message = "O titulo não pode ser vazio.")
+
     private String title;
 
-    @NotNull(message = "O valor não pode ser nulo.")
+
     private BigDecimal value;
 
-    @NotBlank(message = "A descrição não pode ser vazia.")
+
     private String description;
 
-    @NotBlank(message = "A Imagem não pode ser vazia.")
+
     private String image;
 
-    @NotNull
+
     private Long idTeacher;
 }

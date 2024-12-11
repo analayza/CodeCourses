@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/student")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:3000", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 public class StudentController {
 
     private final StudentService studentService;
@@ -22,13 +22,13 @@ public class StudentController {
         return ResponseEntity.status(HttpStatus.CREATED).body(studentService.save(studentDTO));
     }
 
-    @DeleteMapping("/delete")
-    public ResponseEntity<Student> deleteById(Long id){
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Student> deleteById( @PathVariable Long id){
         return ResponseEntity.status(HttpStatus.OK).body(studentService.deleteById(id));
     }
 
     @PutMapping("/update-password")
-    public ResponseEntity<Student> updatePassword(Long studentId, String oldPassword, String newPassword){
+    public ResponseEntity<Student> updatePassword(@RequestParam Long studentId, @RequestParam String oldPassword, @RequestParam String newPassword){
         return ResponseEntity.status(HttpStatus.OK).body(studentService.updatePassword(studentId,oldPassword,newPassword));
     }
 }

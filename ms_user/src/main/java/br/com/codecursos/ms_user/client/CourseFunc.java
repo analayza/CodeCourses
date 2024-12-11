@@ -20,7 +20,7 @@ public interface CourseFunc {
     void deleteCourse(@PathVariable("id") Long id);
 
     @PutMapping("/course/{id}")
-    void updateCourse(@PathVariable("id") Long id, CourseDTO courseDTO);
+    void updateCourse(@PathVariable("id") Long id, @RequestBody CourseDTO courseDTO);
 
     @GetMapping("/course/listCourseTeacher/{id}")
     List<CourseDTO> listCourseTeacher(@PathVariable("id") Long id);

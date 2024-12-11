@@ -13,6 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/class")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:3000")
 public class ClassController {
 
     private final ClassService classService;

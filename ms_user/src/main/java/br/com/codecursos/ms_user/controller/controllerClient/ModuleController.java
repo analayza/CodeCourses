@@ -13,6 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/module")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:3000")
 public class ModuleController {
 
     private final ModuleService moduleService;
